@@ -1,0 +1,14 @@
+export const GET_USERS = "GET_USERS";
+export const DELETE_USER = "DELETE_USER";
+export const CREATE_USER = "CREATE_USER";
+export const UPDATE_USER = "UPDATE_USER";
+export const CLEAR_USER = "CLEAR_USER";
+export const GIVE_ALERT = "GIVE_ALERT";
+export const GIVE_MODAL = "GIVE_MODAL";
+export const LOGIN = "LOGIN";
+export const SIGNUP = "SIGNUP";
+export const LOGOUT = "LOGOUT";
+export const REMOVE_ALERT = "REMOVE_ALERT";
+export const REMOVE_MODAL = "REMOVE_MODAL";
+export const LOADINGTRUE = "LOADINGTRUE";
+export const LOADINGFALSE = "LOADINGFALSE";
