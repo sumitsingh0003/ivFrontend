@@ -32,17 +32,18 @@ const EditInvoice = ({ setState, state }) => {
 
         // Second Bill to DropDowm
         const uniqueArr2 = [];
-        selector.forEach(obj => {
+        selector.forEach(obj1 => {
             if (!uniqueArr2.some(item => {
                 return (
-                    item.data.Info.toaddress === obj.data.Info.toaddress && item.data.Info.toname === obj.data.Info.toname && item.data.Info.tocompany === obj.data.Info.tocompany
+                    item.data.Info.toaddress === obj1.data.Info.toaddress && item.data.Info.toname === obj1.data.Info.toname && item.data.Info.tocompany === obj1.data.Info.tocompany
                 );
             })) {
-                uniqueArr2.push(obj);
+                uniqueArr2.push(obj1);
             }
         });
         setSelectData2(uniqueArr2);
-        // console.log("UniqueArr", uniqueArr);
+        // console.log("UniqueArr2", uniqueArr2);
+        // console.log("selector", selector);
     }, []);
 
     // const a = state.data.Info;
@@ -51,35 +52,35 @@ const EditInvoice = ({ setState, state }) => {
     };
     const handleSelect = (event) => {
         setSelect(event.target.value);
-        console.log("Number", state);
-        setState({ ...state, data: { ...state.data, Info: { ...state.data.Info, address: event.target.value.address, name: event.target.value.name, company: event.target.value.company } } });
+        // console.log("Number", state);
+        setState({ ...state, data: { ...state.data, Info: { ...state.data.Info, address: event.target.value.address, name: event.target.value.name, company: event.target.value.company, gstNo: event.target.value.gstNo, togstNo: event.target.value.togstNo } } });
     };
     const handleSelect2 = (event) => {
         setSelect2(event.target.value);
-        console.log("Number", state);
+        // console.log("Number", state);
         setState({ ...state, data: { ...state.data, Info: { ...state.data.Info, toaddress: event.target.value.toaddress, toname: event.target.value.toname, tocompany: event.target.value.tocompany } } });
     };
 
     return (
         <form className='border-2 border-black w-full p-8 text-base'>
             <div className='w-full'>
-                <TextField InputProps={{ sx: { "& input": { textAlign: "center", fontSize: "25px" } } }} variant="standard" onChange={handleChange} value={state.data.Info.invoice} name="invoice" type="text" className='text-[20px] w-full  overflow-hidden my-0 items-center' />
+                <TextField placeholder='INVOICE' InputProps={{ sx: { "& input": { textAlign: "center", fontSize: "25px" } } }} variant="standard" onChange={handleChange} value={state.data.Info.invoice} name="invoice" type="text" className='text-[20px] w-full  overflow-hidden my-0 items-center' />
             </div>
             <div className='flex justify-between w-full'>
                 <div>
                     <EditDropBox setState={setState} state={state} />
                 </div>
-                <div className='flex justify-between space-x-2'>
+                <div className='flex justify-between items-center space-x-2'>
                     <div className='flex flex-col'>
                         {/* <p><img src={state.data.Info.imgDataName} alt="" />Bahanu</p> */}
-                        <TextField InputProps={{ sx: { fontSize: "12px", color: 'black' } }} variant="standard" onChange={handleChange} value={state.data.Info.invoiceNo} name="invoiceNo" type="text" />
-                        <TextField InputProps={{ sx: { fontSize: "12px", color: 'black' } }} variant="standard" onChange={handleChange} value={state.data.Info.gst} name="gst" type="text" />
-                        <TextField InputProps={{ sx: { fontSize: "12px", color: 'black' } }} variant="standard" onChange={handleChange} value={state.data.Info.invoiceDate} name="invoiceDate" type="text" />
-                        <TextField InputProps={{ sx: { fontSize: "12px", color: 'black' } }} variant="standard" onChange={handleChange} value={state.data.Info.invoiceDDate} name="invoiceDDate" type="text" />
+                        <TextField placeholder='Invoice No.' InputProps={{ sx: { fontSize: "12px", color: 'black' } }} variant="standard" onChange={handleChange} value={state.data.Info.invoiceNo} name="invoiceNo" type="text" />
+                        {/* <TextField InputProps={{ sx: { fontSize: "12px", color: 'black' } }} variant="standard" onChange={handleChange} value={state.data.Info.gstNo} name="gstNo" type="text" /> */}
+                        <TextField placeholder='Invoice Date.' InputProps={{ sx: { fontSize: "12px", color: 'black' } }} variant="standard" onChange={handleChange} value={state.data.Info.invoiceDate} name="invoiceDate" type="text" />
+                        <TextField placeholder='Due Date' InputProps={{ sx: { fontSize: "12px", color: 'black' } }} variant="standard" onChange={handleChange} value={state.data.Info.invoiceDDate} name="invoiceDDate" type="text" />
                     </div>
                     <div className='flex flex-col'>
-                        <TextField InputProps={{ sx: { fontSize: "12px", color: 'black' } }} variant="standard" onChange={handleChange} value={state.data.Info.invoiceNoVal} name="invoiceNoVal" type="text" />
-                        <TextField InputProps={{ sx: { fontSize: "12px", color: 'black' } }} variant="standard" onChange={handleChange} placeholder="Gst Number" value={state.data.Info.gstVal} name="gstVal" type="text" />
+                        <TextField placeholder='Invoice Number' InputProps={{ sx: { fontSize: "12px", color: 'black' } }} variant="standard" onChange={handleChange} value={state.data.Info.invoiceNoVal} name="invoiceNoVal" type="text" />
+                        {/* <TextField InputProps={{ sx: { fontSize: "12px", color: 'black' } }} variant="standard" onChange={handleChange} placeholder="Gst Number" value={state.data.Info.gstNoVal} name="gstNoVal" type="text" /> */}
                         <TextField InputProps={{ sx: { fontSize: "12px", color: 'black' } }} variant="standard" onChange={handleChange} value={state.data.Info.invoiceDateVal} name="invoiceDateVal" type="date" />
                         <TextField InputProps={{ sx: { fontSize: "12px", color: 'black' } }} variant="standard" onChange={handleChange} value={state.data.Info.invoiceDDateVal} name="invoiceDDateVal" type="date" />
                     </div>
@@ -87,7 +88,7 @@ const EditInvoice = ({ setState, state }) => {
             </div>
             <div className='flex justify-between items-center pt-8'>
                 <div className='flex flex-col space-y-1'>
-                    <Box sx={{ maxWidth: "140px" }}>
+                    {selectData.length > 0 && selectData[0].data.Info.name && <Box sx={{ maxWidth: "140px" }}>
                         <FormControl variant="filled" fullWidth size="small">
                             <InputLabel id="demo-simple-select-label">Select</InputLabel>
                             <Select
@@ -100,7 +101,7 @@ const EditInvoice = ({ setState, state }) => {
                                 {/* <MenuItem MenuItem value={10}>Thirty</MenuItem>; */}
                                 {selectData.map((item, index) => {
                                     return (
-                                        item.data.Info.name.length > 1 && <MenuItem key={index} value={item.data.Info}>
+                                        item.data.Info.name.length > 0 && <MenuItem key={index} value={item.data.Info}>
                                             <div>
                                                 <p>{item.data.Info.name}</p>
                                                 <p className='text-[11px]'>{item.data.Info.company}</p>
@@ -111,18 +112,19 @@ const EditInvoice = ({ setState, state }) => {
                                 })}
                             </Select>
                         </FormControl>
-                    </Box>
-                    <TextField InputProps={{ sx: { fontSize: "12px", color: 'black', fontWeight: "600" } }} variant="standard" onChange={handleChange} className="my-2 font-semibold" value={state.data.Info.billFrom} name="billFrom" type="text" />
+                    </Box>}
+                    <TextField placeholder='Bill From:' InputProps={{ sx: { fontSize: "12px", color: 'black', fontWeight: "600" } }} variant="standard" onChange={handleChange} className="my-2 font-semibold" value={state.data.Info.billFrom} name="billFrom" type="text" />
                     <TextField InputProps={{ sx: { fontSize: "12px", color: 'black' } }} variant="standard" onChange={handleChange} value={state.data.Info.company} name="company" type="text" placeholder='Your Company' />
                     <TextField InputProps={{ sx: { fontSize: "12px", color: 'black' } }} variant="standard" onChange={handleChange} value={state.data.Info.name} name="name" type="text" placeholder='Your Name' />
                     <TextField InputProps={{ sx: { fontSize: "12px", color: 'black' } }} variant="standard" onChange={handleChange} value={state.data.Info.address} multiline name="address" type="text" placeholder="Company's Address" />
+                    <TextField InputProps={{ sx: { fontSize: "12px", color: 'black' } }} variant="standard" onChange={handleChange} value={state.data.Info.gstNo} name="gstNo" type="text" placeholder="Your GST NO." />
                     {/* <TextField InputProps={{ sx: { fontSize: "12px", color: 'black' } }} variant="standard" onChange={handleChange} value={state.data.Info.city} name="city" type="text" placeholder='City' />
                     <TextField InputProps={{ sx: { fontSize: "12px", color: 'black' } }} variant="standard" onChange={handleChange} value={state.data.Info.state} name="state" type="text" placeholder='State' />
                     <TextField InputProps={{ sx: { fontSize: "12px", color: 'black' } }} variant="standard" onChange={handleChange} value={state.data.Info.pincode} name="pincode" type="text" placeholder='Pincode' />
                     <TextField InputProps={{ sx: { fontSize: "12px", color: 'black' } }} variant="standard" onChange={handleChange} value={state.data.Info.country} name="country" type="text" placeholder='Country' /> */}
                 </div>
                 <div className='flex flex-col space-y-1'>
-                    <Box sx={{ maxWidth: "140px" }}>
+                    {selectData2.length > 0 && selectData2[0].data.Info.toname && <Box sx={{ maxWidth: "140px" }}>
                         <FormControl variant="filled" fullWidth size="small">
                             <InputLabel id="demo-simple-select-label">Select</InputLabel>
                             <Select
@@ -135,7 +137,7 @@ const EditInvoice = ({ setState, state }) => {
                                 {/* <MenuItem MenuItem value={10}>Thirty</MenuItem>; */}
                                 {selectData2.map((item, index) => {
                                     return (
-                                        item.data.Info.toname.length > 1 && <MenuItem key={index} value={item.data.Info}>
+                                        item.data.Info.toname.length > 0 && <MenuItem key={index} value={item.data.Info}>
                                             <div>
                                                 <p>{item.data.Info.toname}</p>
                                                 <p className='text-[11px]'>{item.data.Info.tocompany}</p>
@@ -146,11 +148,12 @@ const EditInvoice = ({ setState, state }) => {
                                 })}
                             </Select>
                         </FormControl>
-                    </Box>
-                    <TextField InputProps={{ sx: { fontSize: "12px", color: 'black' } }} variant="standard" onChange={handleChange} className="my-2 font-semibold" value={state.data.Info.billTo} name="billTo" type="text" />
+                    </Box>}
+                    <TextField placeholder='Bill To:' InputProps={{ sx: { fontSize: "12px", color: 'black' } }} variant="standard" onChange={handleChange} className="my-2 font-semibold" value={state.data.Info.billTo} name="billTo" type="text" />
                     <TextField InputProps={{ sx: { fontSize: "12px", color: 'black' } }} variant="standard" onChange={handleChange} value={state.data.Info.tocompany} name="tocompany" type="text" placeholder="Your Client's Company" />
                     <TextField InputProps={{ sx: { fontSize: "12px", color: 'black' } }} variant="standard" onChange={handleChange} value={state.data.Info.toname} name="toname" type="text" placeholder="Your Client' s Name" />
                     <TextField InputProps={{ sx: { fontSize: "12px", color: 'black' } }} variant="standard" onChange={handleChange} value={state.data.Info.toaddress} multiline name="toaddress" type="text" placeholder="Client's Address" />
+                    <TextField InputProps={{ sx: { fontSize: "12px", color: 'black' } }} variant="standard" onChange={handleChange} value={state.data.Info.togstNo} name="togstNo" type="text" placeholder="Clients's GST NO." />
                     {/* <TextField InputProps={{ sx: { fontSize: "12px", color: 'black' } }} variant="standard" onChange={handleChange} value={state.data.Info.tocity} name="tocity" type="text" placeholder='City' />
                     <TextField InputProps={{ sx: { fontSize: "12px", color: 'black' } }} variant="standard" onChange={handleChange} value={state.data.Info.tostate} name="tostate" type="text" placeholder='State' />
                     <TextField InputProps={{ sx: { fontSize: "12px", color: 'black' } }} variant="standard" onChange={handleChange} value={state.data.Info.topincode} name="topincode" type="text" placeholder='Pincode' />
@@ -159,12 +162,12 @@ const EditInvoice = ({ setState, state }) => {
             </div>
             <div>
                 <div className='bg-gray-800 my-3 rounded-lg py-1 space-x-1 flex justify-between px-3 text-gray-300'>
-                    <input type="text" onChange={handleChange} value={state.data.Info.item} name="item" className='!bg-gray-800 h-8 focus:bg-gray-700 w-full' />
-                    <input type="text" onChange={handleChange} value={state.data.Info.quantity} name="quantity" className=' !bg-gray-800 h-8 !px-0 focus:bg-gray-700 w-20 text-center' />
-                    <input type="text" onChange={handleChange} value={state.data.Info.rate} name="rate" className=' !bg-gray-800 h-8 !px-0 focus:bg-gray-700 w-20 text-center' />
-                    <input type="text" onChange={handleChange} value={state.data.Info.cgst} name="cgst" className='!bg-gray-800 h-8 !px-0 focus:bg-gray-700 w-20 text-center' />
-                    <input type="text" onChange={handleChange} value={state.data.Info.sgst} name="sgst" className='!bg-gray-800 h-8 !px-0 focus:bg-gray-700 w-20 text-center' />
-                    <input type="text" onChange={handleChange} value={state.data.Info.amount} name="amount" className=' !bg-gray-800 h-8 !px-0 focus:bg-gray-700 w-20 text-center ' />
+                    <input placeholder='Item' type="text" onChange={handleChange} value={state.data.Info.item} name="item" className='!bg-gray-800 h-8 focus:bg-gray-700 w-full' />
+                    <input placeholder='QTY' type="text" onChange={handleChange} value={state.data.Info.quantity} name="quantity" className=' !bg-gray-800 h-8 !px-0 focus:bg-gray-700 w-[20%] text-center' />
+                    <input placeholder='Rate' type="text" onChange={handleChange} value={state.data.Info.rate} name="rate" className=' !bg-gray-800 h-8 !px-0 focus:bg-gray-700 w-[20%] text-center' />
+                    {/* <input type="text" onChange={handleChange} value={state.data.Info.cgst} name="cgst" className='!bg-gray-800 h-8 !px-0 focus:bg-gray-700 w-20 text-center' />
+                    <input type="text" onChange={handleChange} value={state.data.Info.sgst} name="sgst" className='!bg-gray-800 h-8 !px-0 focus:bg-gray-700 w-20 text-center' /> */}
+                    <input placeholder='Amount' type="text" onChange={handleChange} value={state.data.Info.amount} name="amount" className=' !bg-gray-800 h-8 !px-0 focus:bg-gray-700 w-[20%] text-center ' />
                 </div>
                 <div>
                     <EditList setState={setState} state={state} />

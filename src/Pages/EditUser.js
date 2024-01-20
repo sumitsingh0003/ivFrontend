@@ -6,7 +6,6 @@ import DialogContent from '@mui/material/DialogContent';
 import Slide from '@mui/material/Slide';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateUser } from '../redux/userActions';
-import { giveAlert } from '../redux/promptsActions';
 import EditInvoice from '../components/EditInvoice';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -22,24 +21,10 @@ const EditUser = ({ openEdit, setOpenEdit, propes }) => {
 
     const goBack = () => {
         setOpenEdit(false);
-        // dispatch(giveAlert({
-        //     type: "error",
-        //     text: "Unable to Update the user"
-        // }));
     };
-    // console.log("state", state);
 
     const handleEdit = () => {
-        // const NewData = users.map(item => {
-        //     if (item._id === state._id) {
-        //         return null;
-        //     } else {
-        //         return item;
-        //     }
-        // });
-        const NewData = users.filter(item => { return item._id !== state._id; });
-        console.log("NewData", NewData);
-        dispatch(updateUser(NewData, state, state._id), authToken);
+        dispatch(updateUser(users, state, state._id), authToken);
         setOpenEdit(false);
     };
     return (

@@ -5,6 +5,7 @@ import FeaturesBlocks from '../partials/FeaturesBlocks';
 import Testimonials from '../partials/Testimonials';
 import Newsletter from '../partials/Newsletter';
 import { Link } from 'react-router-dom';
+import View2 from './View2';
 
 const Home = () => {
     return (
@@ -41,7 +42,7 @@ const Home = () => {
                                 <div className="ce ls gu">
                                     <h1 className="co gp cd cb cx nw" data-aos="zoom-y-out">
                                         Make your Invoice
-                                        <span className="fe hu ag ab aj">wonderful</span>
+                                        <span className="fe hu ag ab aj"> Wonderful</span>
                                     </h1>
                                     <div className="sh tj">
                                         <p
@@ -76,6 +77,7 @@ const Home = () => {
                 <FeaturesBlocks />
                 <Testimonials />
                 <Newsletter />
+                <View2 />
             </main>
         </>
     );

@@ -4,7 +4,7 @@ import { useDropzone } from 'react-dropzone';
 const DropBox = ({ form, setForm }) => {
     const [image, setImage] = useState(false);
     const onDrop = useCallback(acceptedFiles => {
-        console.log("AcceptedFiles", acceptedFiles);
+        // console.log("AcceptedFiles", acceptedFiles);
         setImage(acceptedFiles[0]);
     }, []);
 

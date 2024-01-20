@@ -147,6 +147,15 @@ progress {
     -webkit-appearance: none
 }
 
+::-webkit-scrollbar {
+    display: none;
+    /* width: 10px; */
+    /* scrollbar-color: red blue; */
+    /* scrollbar-width: 100px; */
+    /* color: red; */
+    scroll-behavior: smooth;
+}
+
 ::-webkit-file-upload-button {
     -webkit-appearance: button;
     font: inherit
@@ -1548,9 +1557,9 @@ html {
     display: contents
 }
 
-.hidden {
+/* .hidden {
     display: none
-}
+} */
 
 .ia {
     height: 4rem

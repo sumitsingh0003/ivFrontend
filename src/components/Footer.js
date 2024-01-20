@@ -190,7 +190,7 @@ const Footer = () => {
                                 </Link>
                             </li>
                         </ul>
-                        <div className="cn c_ np">©Bhanu Rathore. All rights reserved.</div>
+                        <div className="cn c_ np">© Web2Rise. All rights reserved.</div>
                     </div>
                 </div >
             </footer >

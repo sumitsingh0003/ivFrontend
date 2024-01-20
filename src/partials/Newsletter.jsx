@@ -101,17 +101,17 @@ function Newsletter() {
                 </p>
 
                 {/* CTA form */}
-                <form className="w-full lg:w-auto">
+                <div className="w-full lg:w-auto">
                   <div className="flex flex-col sm:flex-row justify-center max-w-xs mx-auto sm:max-w-md lg:mx-0">
                     <input
                       type="email"
-                      className="form-input w-full appearance-none bg-gray-800 border border-gray-700 focus:border-gray-600 rounded-sm px-4 py-3 mb-2 sm:mb-0 sm:mr-2 text-white placeholder-gray-500"
+                      className="form-input w-full appearance-none bg-gray-800 border border-gray-700 focus:border-gray-600 rounded-sm px-4 py-3 mb-2 sm:mb-0 sm:mr-2 text-black placeholder-gray-500"
                       placeholder="Your email…"
                       aria-label="Your email…"
                     />
                     <a
                       className="btn text-white px-10 py-3 rounded bg-blue-600 hover:bg-blue-700 shadow"
-                      href="#0">
+                      href="#">
                       Subscribe
                     </a>
                   </div>
@@ -120,7 +120,7 @@ function Newsletter() {
                   <p className="text-sm text-gray-400 mt-3">
                     7 days free trial. No credit card required.
                   </p>
-                </form>
+                </div>
               </div>
             </div>
           </div>

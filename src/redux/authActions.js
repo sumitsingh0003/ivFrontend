@@ -23,9 +23,10 @@ const headers = {
     "Content-Type": "application/json",
 };
 
-// const url = "https://iv-backend.onrender.com/api";
-
-const url = "http://localhost:4000/api";
+// const url = "https://dev.dktoll2tc18bv.amplifyapp.com/api";
+const url = "https://iv-backend.onrender.com/api";
+// const url = "https://invoice-backend.netlify.app/api";
+// const url = "http://localhost:4000/api";
 
 export const loginDispatcher = ({ email, password }) => {
     return function (dispatch) {

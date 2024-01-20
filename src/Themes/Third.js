@@ -2,14 +2,86 @@ import React from 'react';
 // import { Box } from '@mui/material';
 import Doc from '../features/DocService';
 import PdfContainer from '../features/PdfContainer';
-const First = ({ data }) => {
+const Third = ({ data }) => {
     // const { data } = previewData;
-    // console.log(data);
+    console.log(data);
     const createPdf = (html) => Doc.createPdf(html);
     return (
         <>
             <PdfContainer createPdf={createPdf}>
-                <div className="border-1 bg-white font-[DejaVu Sans,Sans-serif] text-black text-sm w-[600px] aspect-[1/1.2] border-black p-5">{/*aspect-[1/1.2]*/}
+                {/* <div data-aos="zoom-y-out" className='w-[600px] aspect-[1/1.414] bg-white mb-16 text-black mx-auto'>
+                    <div className='text-center text-[11px] sm:text-[16px] md:text-[19px]'>Invoice</div>
+                    <div className='flex justify-between items-center'>
+                        <div className='w-[15%] '><img className='h-[100px] w-[100px] object-cover' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpOCIPOxKGbMo_LhjiZ3kQquwhDkjuNWNPUg&usqp=CAU" alt="" /></div>
+                        <div className='flex space-x-5 font-semibold text-[8px] sm:text-[14px] md:text-[15px]'>
+                            <div>
+                                <p>Invoice Number</p>
+                                <p>Date</p>
+                                <p>DueDate</p>
+                            </div>
+                            <div className='text-center'>
+                                <p>01</p>
+                                <p>12/23/12</p>
+                                <p>12/12/12</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='flex justify-between text-center items-center text-[8px] sm:text-[14px] md:text-[15px]'>
+                        <div className=''>
+                            <p className='font-semibold'>Haha</p>
+                            <p>Haha</p>
+                            <p>Haha</p>
+                            <p>Haha</p>
+                            <p>Haha</p>
+                            <p>Haha</p>
+                            <p>Haha</p>
+                            <p>Haha</p>
+                        </div>
+                        <div className=''>
+                            <p className='font-semibold'>Haha</p>
+                            <p>Haha</p>
+                            <p>Haha</p>
+                            <p>Haha</p>
+                            <p>Haha</p>
+                            <p>Haha</p>
+                            <p>Haha</p>
+                            <p>Haha</p>
+                        </div>
+                    </div>
+                    <div className=' text-center text-[7px] sm:text-[12px] md:text-[15px]'>
+                        <div className='flex font-semibold pl-3 py-1 bg-gray-600 text-gray-200'>
+                            <p className='w-[50%] text-left'>bhanu</p>
+                            <p className='w-[10%]'>bhanu</p>
+                            <p className='w-[10%]'>bhanu</p>
+                            <p className='w-[10%]'>bhanu</p>
+                            <p className='w-[10%]'>bhanu</p>
+                            <p className='w-[10%]'>bhanu</p>
+                        </div>
+                        <div className='flex py-1 pl-3 text-gray-800'>
+                            <p className='w-[50%] text-left'>bhanu</p>
+                            <p className='w-[10%]'>bhanu</p>
+                            <p className='w-[10%]'>bhanu</p>
+                            <p className='w-[10%]'>bhanu</p>
+                            <p className='w-[10%]'>bhanu</p>
+                            <p className='w-[10%]'>bhanu</p>
+                        </div>
+                    </div>
+                    <div className='flex justify-end text-[11px] sm:text-[16px] md:text-[19px]'>
+                        <div>
+                            <p>Data</p>
+                            <p>Data</p>
+                            <p>Data</p>
+                            <p>Data</p>
+                        </div>
+                        <div>
+                            <p>Data</p>
+                            <p>Data</p>
+                            <p>Data</p>
+                            <p>Data</p>
+                        </div>
+                    </div>
+                </div> */}
+                <div className="border-1 bg-pink-500 font-[DejaVu Sans,Sans-serif] text-black text-sm w-[600px] aspect-[1/1.2] border-black p-5">{/*aspect-[1/1.2]*/}
                     <p className='text-center text-2xl'>{data.Info.invoice}</p>
                     <div className='flex justify-between items-center'>
                         <div>{data.Info.imgDataName && <img className='w-28 h-28 object-contain' src={`${data.Info.imgDataName}`} alt="logo" />}</div>
@@ -27,23 +99,21 @@ const First = ({ data }) => {
                         </div>
                     </div>
                     <div className='flex my-5 justify-between items-center'>
-                        <div className='w-fit space-y-1 max-w-[40%]'>
+                        <div className='w-fit space-y-1'>
                             <p>{data.Info.billFrom}</p>
                             <p>{data.Info.company}</p>
                             <p>{data.Info.name}</p>
-                            <p>{data.Info.address}</p>
-                            <p>{data.Info.gstNo}</p>
+                            <p className='max-w-[128px]'>{data.Info.address}</p>
                             {/* <p>{data.Info.city}</p>
                                     <p>{data.Info.state}</p>
                                     <p>{data.Info.pincode}</p>
                                     <p>{data.Info.country}</p> */}
                         </div>
-                        <div className='w-fit space-y-1 max-w-[40%]'>
+                        <div className='w-fit space-y-1'>
                             <p>{data.Info.billTo}</p>
                             <p>{data.Info.tocompany}</p>
                             <p id='pdf_inside_name'>{data.Info.toname}</p>
-                            <p>{data.Info.toaddress}</p>
-                            <p>{data.Info.togstNo}</p>
+                            <p className='max-w-[128px]'>{data.Info.toaddress}</p>
                             {/* <p>{data.Info.tocity}</p>
                                     <p>{data.Info.tostate}</p>
                                     <p>{data.Info.topincode}</p>
@@ -52,7 +122,7 @@ const First = ({ data }) => {
                     </div>
                     <div className='flex bg-gray-700 text-sm text-white px-3 justify-between py-2'>
                         <div>
-                            <p className='max-w-full'>{data.Info.item}</p>
+                            <p className='w-40'>{data.Info.item}</p>
                         </div>
                         <div className='flex space-x-1 text-center'>
                             <p className='w-16'>{data.Info.quantity}</p>
@@ -66,7 +136,7 @@ const First = ({ data }) => {
                         return (
                             <div key={item.index} className='odd:bg-gray-300 even:bg-gray-100 text-sm flex px-3 py-1 justify-between '>
                                 <div>
-                                    <p className='max-w-full'>{item.itemName}</p>
+                                    <p className='w-40'>{item.itemName}</p>
                                 </div>
                                 <div className='flex space-x-1 text-center'>
                                     <p className='w-16'>{item.itemQuantity}</p>
@@ -100,7 +170,7 @@ const First = ({ data }) => {
                             </div>
                             <div>
                                 {data.subTotalData.discountVal && <p>{data.subTotalData.discountVal} {data.subTotalData.discountType ? " ₹" : "%"}</p>}
-                                {data.subTotalData.gstVal && <p>{data.subTotalData.gstVal} %</p>}
+                                {data.subTotalData.gstVal && <p>{data.subTotalData.gstVal} </p>}
                                 {data.subTotalData.otherTaxVal && <p>{data.subTotalData.otherTaxVal} {data.subTotalData.otherTaxType ? " ₹" : "%"}</p>}
                                 {data.subTotalData.serviceChargeVal && <p>{data.subTotalData.serviceChargeVal}{data.subTotalData.serviceTaxType ? " ₹" : "%"} </p>}
                                 {data.subTotalData.subTotalVal && <p>{data.subTotalData.subTotalVal} </p>}
@@ -115,4 +185,4 @@ const First = ({ data }) => {
     );
 };
 
-export default First;
+export default Third;

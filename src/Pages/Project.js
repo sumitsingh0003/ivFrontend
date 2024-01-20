@@ -7,7 +7,6 @@ import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import ButtonGroup from '@mui/material/ButtonGroup';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import { useDispatch, useSelector } from 'react-redux';
@@ -18,7 +17,7 @@ import CreateUser from './CreateUser';
 import EditUser from './EditUser';
 import AlertBox from '../Prompts/AlertBox';
 import { giveModal } from '../redux/promptsActions';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -52,6 +51,7 @@ const Project = () => {
     const alertSelector = useSelector(state => state.prompts);
     const { alerts } = alertSelector;
     const { loading } = useSelector(state => state.loading);
+    const navigate = useNavigate();
     // const { modals } = selector2;
     // console.log("auth", authToken);
     useEffect(() => {
@@ -112,7 +112,7 @@ const Project = () => {
                         <div className='text-center pt-20 pb-5'>
                             <Button onClick={createNewUser} variant="contained">Create New Invoice</Button>
                         </div>
-                        {users.length > 0 ? <TableContainer sx={{ height: 440 }} component={Paper}>
+                        {users.length > 0 ? <TableContainer component={Paper}>
                             <Table sx={{ minWidth: 700 }} stickyHeader aria-label="customized table">
                                 <TableHead>
                                     <TableRow >
@@ -131,17 +131,20 @@ const Project = () => {
                                             </StyledTableCell>
                                             <StyledTableCell align="center">{item.data.Info.tocompany}</StyledTableCell>
                                             <StyledTableCell align="center">{item.data.Info.invoiceDateVal}</StyledTableCell>
-                                            <StyledTableCell align="center">{item.data.subTotalData.subTotalVal}</StyledTableCell>
+                                            <StyledTableCell align="center">{item.data.subTotalData.balanceDueValue}</StyledTableCell>
                                             <StyledTableCell align="center">
                                                 <div className='flex justify-center items-center space-x-5'>
+                                                    <i onClick={() => handleEdit(item)} className="cursor-pointer hover:scale-125 text-blue-600 duration-300 fa-solid fa-pen-to-square text-xl"></i>
+                                                    {/* <i onClick={() => handleView(item)} className="hover:scale-125 duration-300 text-green-500 cursor-pointer fa-solid fa-download text-xl"></i> */}
+                                                    <i onClick={() => navigate("/download", { state: { data: item } })} className="hover:scale-125 duration-300 text-green-500 cursor-pointer fa-solid fa-download text-xl"></i>
                                                     <lord-icon
                                                         src="https://cdn.lordicon.com/jmkrnisz.json"
                                                         onClick={() => handleOpenDelete(item._id)}
                                                         trigger="hover"
-                                                        style={{ width: "30px", height: "30px", cursor: "pointer" }}>
+                                                        colors="primary:#b30808"
+                                                        style={{ width: "25px", height: "25px", cursor: "pointer", }}>
                                                     </lord-icon>
-                                                    <i onClick={() => handleEdit(item)} className="cursor-pointer fa-solid fa-pen-to-square text-2xl"></i>
-                                                    <i onClick={() => handleView(item)} className="cursor-pointer fa-solid fa-download text-2xl"></i></div>
+                                                </div>
                                             </StyledTableCell>
                                         </StyledTableRow>
                                     ))}
@@ -160,7 +163,6 @@ const Project = () => {
                         {preview && <View previewData={previewData} preview={preview} setPreview={setPreview} />}
                         {openCreate && <CreateUser openCreate={openCreate} setOpenCreate={setOpenCreate} />}
                         {openEdit && <EditUser openEdit={openEdit} setOpenEdit={setOpenEdit} propes={propes} />}
-
                         {loading && <div className='w-fit absolute top-[50%] left-[50%] -translate-x-[50%] translate-y-[-50%]'><div className="loadingio-spinner-double-ring-2g75zcwohh3"><div className="ldio-pa9vvwa2xm"><div></div><div></div><div><div></div></div><div><div></div></div></div></div></div>}
                         <Modal />
                         {/* <Registration /> */}

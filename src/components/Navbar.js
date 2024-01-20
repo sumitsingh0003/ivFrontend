@@ -18,7 +18,7 @@ const Navbar = () => {
         if (location.pathname !== "/project") {
             dispatch(removeAlert());
         }
-    }, [location.pathname]);
+    }, [location.pathname, dispatch]);
     window.addEventListener('scroll', handleScroll);
 
     return (
@@ -44,7 +44,7 @@ const Navbar = () => {
                         </div>
 
                         {/* Desktop navigation */}
-                        <nav className="hidden me mh">
+                        <nav className="hidden md:flex me mh">
                             {/* Desktop menu links */}
                             <ul className="ii sj ui ue un">
                                 <li>

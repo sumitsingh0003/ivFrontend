@@ -112,7 +112,7 @@ const Contact = () => {
                             <h1 className="h1">Have a question about Simple? Contact us directly</h1>
                         </div>
 
-                        <form className="sy tj">
+                        <section className="sy tj">
                             <div className="ii ue na nw">
                                 <div className="ij mu fh nw vb">
                                     <label className="block he cn cc re" for="first-name">First Name <span className="hc">*</span></label>
@@ -159,7 +159,7 @@ const Contact = () => {
                             <div className="cn c_ rv">
                                 By clicking "send" you consent to allow Simple to store and process the personal information submitted above and agree to our <a className="hd" href="#0">terms and conditions</a> as well as our <a className="hd" href="#0">Privacy Policy</a>.
                             </div>
-                        </form>
+                        </section>
 
                     </div>
                 </div>

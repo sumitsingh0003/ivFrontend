@@ -32,9 +32,11 @@ export const userClear = () => ({
 //     'auth-token': auth || localStorage.getItem("token")
 // };
 
-// const url = "https://iv-backend.onrender.com/api";
+// const url = "https://dev.dktoll2tc18bv.amplifyapp.com/api";
+const url = "https://iv-backend.onrender.com/api";
+// const url = "https://invoice-backend.netlify.app/api";
 
-const url = "http://localhost:4000/api";
+// const url = "http://localhost:4000/api";
 
 
 // Action Dispatcher 
@@ -172,14 +174,21 @@ export const updateUser = (users, user, id, auth) => {
             }
         }).then((res) => {
             console.log("res", res.data);
+            console.log("aqa", res.data.note);
+            const altData = users.map((item) => {
+                if (item._id === res.data.note._id) {
+                    return res.data.note;
+                } else {
+                    return item;
+                }
+            });
+            console.log("all", altData);
+            dispatch(userUpdate(altData));
             dispatch(loadingFalse());
             dispatch(giveAlert({
                 type: "success",
                 text: "Successfully Updated the Invoice"
             }));
-            const all = [...users, res.data.note];
-            console.log("all", all);
-            dispatch(userUpdate(all));
         }).catch((err) => {
             console.log("Update error", err);
             dispatch(loadingFalse());

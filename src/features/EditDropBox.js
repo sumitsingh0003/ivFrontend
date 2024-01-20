@@ -4,7 +4,7 @@ import { useDropzone } from 'react-dropzone';
 const EditDropBox = ({ state, setState }) => {
     const [image, setImage] = useState(false);
     const onDrop = useCallback(acceptedFiles => {
-        console.log("AcceptedFiles", acceptedFiles);
+        // console.log("AcceptedFiles", acceptedFiles);
         // console.log("object", URL.createObjectURL(acceptedFiles[0]));
         // setImage(URL.createObjectURL(acceptedFiles[0]));
         // console.log("object", acceptedFiles.target.value);
@@ -15,7 +15,7 @@ const EditDropBox = ({ state, setState }) => {
 
     useEffect(() => {
         if (image) { setState({ ...state, data: { ...state.data, Info: { ...state.data.Info, img: image, imgName: image.name } } }); }
-        console.log("state", state);
+        // console.log("state", state);
         // console.log("image", image);
 
         // image && setForm({

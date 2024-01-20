@@ -27,7 +27,7 @@ const CreateUser = ({ openCreate, setOpenCreate }) => {
         // }));
     };
     const handleCreate = () => {
-        console.log("New User", allData);
+        // console.log("New User", allData);
         if (allData.data.Info.img === "") {
             return alert("Company Logo is Required");
         }

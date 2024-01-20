@@ -21,6 +21,7 @@ import AOS from 'aos';
 import Project from "./Pages/Project";
 import Login from './Pages/Login';
 import Signup from './Pages/Signup';
+import View2 from './Pages/View2';
 
 function App() {
   const location = useLocation();
@@ -53,6 +54,8 @@ function App() {
           <Route exact path='/contact' element={<Contact />} />
           <Route exact path='/login' element={<Login />} />
           <Route exact path='/signup' element={<Signup />} />
+          <Route exact path='/download' element={<View2 />} />
+          <Route path='*' element={<Error404 />} />
         </Routes>
         <Footer />
       </div>
