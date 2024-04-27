@@ -8,7 +8,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteUser } from '../redux/userActions';
-import { giveAlert, removeModal, removeAlert } from '../redux/promptsActions';
+import { giveAlert, removeModal } from '../redux/promptsActions';
 import { useLocation } from 'react-router-dom';
 
 const Transition = React.forwardRef(function Transition(props, ref) {
@@ -23,6 +23,7 @@ export default function Modal() {
     useEffect(() => {
         modals.id && setOpen(true);
         console.log("sjd", location.pathname);
+        // eslint-disable-next-line 
     }, [modals]);
 
     const dispatch = useDispatch();

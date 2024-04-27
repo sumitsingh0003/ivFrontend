@@ -53,7 +53,7 @@ const View2 = () => {
         }
     };
     const handleDownload = () => {
-        console.log("Bhanu");
+        console.log("Sumit Singh");
     };
     return (
         <>

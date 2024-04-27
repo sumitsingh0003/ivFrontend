@@ -1,13 +1,7 @@
 import './App.css';
 import "./js/main";
 import React, { useEffect } from 'react';
-// import "./js/vendors/aos";
-// import "./js/vendors/alpinejs.min";
-// import "./js/vendors/sticky.min.js";
-// import 'aos/dist/aos.css';
-// import './css/style.css';
 import "./style.css";
-// import "./css/style.css";
 import "./css/vendors/aos.css";
 import Navbar from './components/Navbar';
 import { Route, Routes, useLocation } from 'react-router-dom';

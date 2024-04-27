@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { loginDispatcher, logoutDispatcher } from '../redux/authActions';
+import { loginDispatcher } from '../redux/authActions';
 // import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 // import Spinner from "../assests/images/Spinner.gif";
@@ -42,6 +42,8 @@ const Login = () => {
         success && navigate('/project');
         // loading && setloader(true);
         // !loading && setloader(false);
+
+        // eslint-disable-next-line
     }, [loading, success, error]);
     const handleClickShowPassword = () => setShowPassword((show) => !show);
 

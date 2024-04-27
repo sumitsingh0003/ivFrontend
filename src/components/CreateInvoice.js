@@ -112,6 +112,7 @@ const CreateInvoice = ({ setAllData }) => {
             }
         });
         setSelectData2(uniqueArr2);
+        // eslint-disable-next-line
     }, []);
     const handleChange = (e) => {
         // console.log("handleChange", e.target.name);

@@ -6,5 +6,6 @@ AOS.init({
   duration: 700,
   easing: 'ease-out-cubic',
 });
-
+// eslint-disable-next-line
 const sticky = new Sticky('[data-sticky]');
+

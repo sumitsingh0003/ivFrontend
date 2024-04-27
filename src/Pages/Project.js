@@ -58,8 +58,8 @@ const Project = () => {
         if (!users.length) {
             localStorage.getItem("token") && dispatch(loadUsers(authToken));
         }
-        // eslint-disable-next-line
         // Dependency se dispatch hataya hai 
+        // eslint-disable-next-line
     }, []);
 
     const createNewUser = () => {
@@ -70,8 +70,9 @@ const Project = () => {
         setPropes({ ...item });
         setOpenEdit(true);
     };
-
+// eslint-disable-next-line
     const handleView = (item) => {
+        // eslint-disable-next-line
         setPreviewData(item);
         setPreview(true);
     };

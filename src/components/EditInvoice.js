@@ -44,6 +44,8 @@ const EditInvoice = ({ setState, state }) => {
         setSelectData2(uniqueArr2);
         // console.log("UniqueArr2", uniqueArr2);
         // console.log("selector", selector);
+
+        // eslint-disable-next-line
     }, []);
 
     // const a = state.data.Info;

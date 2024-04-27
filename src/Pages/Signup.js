@@ -54,6 +54,8 @@ const Signup = () => {
         success && navigate('/project');
         error === "Sorry a user with this email already exists" && alert(error);
         // authToken && localStorage.setItem
+
+        // eslint-disable-next-line
     }, [success, error]);
 
     const validate = (fieldName) => {

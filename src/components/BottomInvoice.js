@@ -90,6 +90,7 @@ const BottomInvoice = ({ form, setForm, itemList, setAllData }) => {
     };
     useEffect(() => {
         setAllData({ data: { Info: form, items: [...itemList], subTotalData: input } });
+        // eslint-disable-next-line
     }, [form, itemList, input]);
     console.log("input", input);
     return (

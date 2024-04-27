@@ -111,7 +111,7 @@ function Newsletter() {
                     />
                     <a
                       className="btn text-white px-10 py-3 rounded bg-blue-600 hover:bg-blue-700 shadow"
-                      href="#">
+                      href="#.">
                       Subscribe
                     </a>
                   </div>
